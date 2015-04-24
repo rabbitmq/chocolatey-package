@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>rabbitmq</id>
+    <title>RabbitMQ</title>
+    <version>3.5.1</version>
+    <authors>GoPivotal</authors>
+    <owners>Scott Smerchek</owners>
+    <summary>RabbitMQ - Messaging that just works</summary>
+    <description>RabbitMQ is open source message broker software (i.e., message-oriented middleware) that implements the Advanced Message Queuing Protocol (AMQP) standard. The RabbitMQ server is written in Erlang and is built on the Open Telecom Platform framework for clustering and failover.</description>
+    <projectUrl>http://www.rabbitmq.com/</projectUrl>
+    <tags>message queueing messaging admin</tags>
+    <copyright>GoPivotal, Inc.</copyright>
+    <licenseUrl>http://www.rabbitmq.com/mpl.html</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <iconUrl>https://github.com/smerchek/nugetpackages/raw/master/RabbitMQ/rabbitmq-logo.png</iconUrl>
+    <dependencies>
+      <dependency id="erlang" version="15.3.1" />
+    </dependencies>
+    <releaseNotes></releaseNotes>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <!--<file src="content\**" target="content" />-->
+  </files>
+</package>
