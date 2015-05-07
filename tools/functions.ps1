@@ -18,7 +18,3 @@ function Get-RabbitMQPath
 
     return "$path\rabbitmq_server-$version"
 }
-
-$p = Get-RabbitMQPath
-
-$p
