@@ -1,4 +1,15 @@
-﻿#choco install rabbitmq -s '%cd%' -f --params="/RABBITMQ_BASE=C:\ProgramData\RabbitMQ"
+﻿#choco install rabbitmq -s '%cd%' -f --params="/RABBITMQBASE:C:\ProgramData\RabbitMQ"
+
+
+function Get-RabbitMQPath
+{
+    $regPath = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\RabbitMQ"
+    if (Test-Path "HKLM:\SOFTWARE\Wow6432Node\") { $regPath = "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\RabbitMQ" }
+    $path = Split-Path -Parent (Get-ItemProperty $regPath "UninstallString").UninstallString
+    $version = (Get-ItemProperty $regPath "DisplayVersion").DisplayVersion
+    return "$path\rabbitmq_server-$version"
+}
+
 
 ##lifted from http://powershell.com/cs/blogs/tips/archive/2014/02/07/setting-and-deleting-environment-variables.aspx
 $scriptPath = split-path -parent $MyInvocation.MyCommand.Definition
@@ -39,11 +50,14 @@ if ($packageParameters) {
 
 Install-ChocolateyPackage 'rabbitmq' 'EXE' '/S' 'http://www.rabbitmq.com/releases/rabbitmq-server/v3.5.1/rabbitmq-server-3.5.1.exe' -validExitCodes @(0)
 
+Write-Output $env:chocolateyPackageParameters
+Write-Output $arguments
 
-if ($arguments['RABBITMQ_BASE'])
+if ($arguments['RABBITMQBASE'])
 {
-    Set-EnvironmentVariable -Name RABBITMQ_BASE -Value $arguments['RABBITMQ_BASE'] -Target Machine
-    $ENV:RABBITMQ_BASE = $arguments['RABBITMQ_BASE']
+    Write-Output "Setting RABBITMQ_BASE"
+    [System.Environment]::SetEnvironmentVariable("RABBITMQ_BASE", $arguments['RABBITMQBASE'], "Machine" )
+    $ENV:RABBITMQ_BASE = $arguments['RABBITMQBASE']
 }
 $rabbitPath = Get-RabbitMQPath
 Start-Process -wait "$rabbitPath\sbin\rabbitmq-service.bat" "stop"
