@@ -11,12 +11,6 @@ function Get-RabbitMQPath
 }
 
 
-##lifted from http://powershell.com/cs/blogs/tips/archive/2014/02/07/setting-and-deleting-environment-variables.aspx
-$scriptPath = split-path -parent $MyInvocation.MyCommand.Definition
-#$target = Join-Path $scriptPath "SetupRabbitMqManagement.bat"
-. Join-Path $scriptPath "functions.ps1"
-
-
 ##This whole arguments section lifted shamelessly from the git.install package. Thanks guys!
 $arguments = @{};
 # /RabbitMQBase /GitAndUnixToolsOnPath /NoAutoCrlf
@@ -56,8 +50,6 @@ if ($arguments['RABBITMQBASE'])
 
 Install-ChocolateyPackage 'rabbitmq' 'EXE' '/S' 'http://www.rabbitmq.com/releases/rabbitmq-server/v3.5.1/rabbitmq-server-3.5.1.exe' -validExitCodes @(0)
 
-Write-Output $env:chocolateyPackageParameters
-Write-Output $arguments
 
 $rabbitPath = Get-RabbitMQPath
 Start-Process -wait "$rabbitPath\sbin\rabbitmq-service.bat" "stop"
