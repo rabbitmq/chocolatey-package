@@ -46,6 +46,12 @@ if ($packageParameters) {
 
 
 
+if ($arguments['RABBITMQBASE'])
+{
+    Write-Output "Setting RABBITMQ_BASE"
+    [System.Environment]::SetEnvironmentVariable("RABBITMQ_BASE", $arguments['RABBITMQBASE'], "Machine" )
+    $ENV:RABBITMQ_BASE = $arguments['RABBITMQBASE']
+}
 
 
 Install-ChocolateyPackage 'rabbitmq' 'EXE' '/S' 'http://www.rabbitmq.com/releases/rabbitmq-server/v3.5.1/rabbitmq-server-3.5.1.exe' -validExitCodes @(0)
@@ -53,12 +59,6 @@ Install-ChocolateyPackage 'rabbitmq' 'EXE' '/S' 'http://www.rabbitmq.com/release
 Write-Output $env:chocolateyPackageParameters
 Write-Output $arguments
 
-if ($arguments['RABBITMQBASE'])
-{
-    Write-Output "Setting RABBITMQ_BASE"
-    [System.Environment]::SetEnvironmentVariable("RABBITMQ_BASE", $arguments['RABBITMQBASE'], "Machine" )
-    $ENV:RABBITMQ_BASE = $arguments['RABBITMQBASE']
-}
 $rabbitPath = Get-RabbitMQPath
 Start-Process -wait "$rabbitPath\sbin\rabbitmq-service.bat" "stop"
 
