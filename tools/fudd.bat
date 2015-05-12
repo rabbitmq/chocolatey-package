@@ -6,3 +6,4 @@ taskkill /f /im erl.exe
 pause
 rmdir /s /q %appdata%\RabbitMQ
 rmdir /s /q c:\programdata\rabbitmq
+@powershell -command "[System.Environment]::SetEnvironmentVariable('RABBITMQ_BASE', '','Machine' )"
