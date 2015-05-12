@@ -61,7 +61,12 @@ if ($arguments['RABBITMQBASE'])
 }
 $rabbitPath = Get-RabbitMQPath
 Start-Process -wait "$rabbitPath\sbin\rabbitmq-service.bat" "stop"
-Start-Process -wait "$rabbitPath\sbin\rabbitmq-service.bat" "enable rabbitmq_management --offline"
+
+if (!($arguments['NOMANAGEMENT']))
+{
+    Start-Process -wait "$rabbitPath\sbin\rabbitmq-service.bat" "enable rabbitmq_management --offline"
+}
+
 Start-Process -wait "$rabbitPath\sbin\rabbitmq-service.bat" "install"
 Start-Process -wait "$rabbitPath\sbin\rabbitmq-service.bat" "start"
 
