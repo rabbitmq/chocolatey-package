@@ -7,7 +7,16 @@
     <authors>GoPivotal</authors>
     <owners>Scott Smerchek</owners>
     <summary>RabbitMQ - Messaging that just works</summary>
-    <description>RabbitMQ is open source message broker software (i.e., message-oriented middleware) that implements the Advanced Message Queuing Protocol (AMQP) standard. The RabbitMQ server is written in Erlang and is built on the Open Telecom Platform framework for clustering and failover.</description>
+    <description>RabbitMQ is open source message broker software (i.e., message-oriented middleware) that implements the Advanced Message Queuing Protocol (AMQP) standard. The RabbitMQ server is written in Erlang and is built on the Open Telecom Platform framework for clustering and failover.
+
+The RabbitMQ Chocolatey package source has a new home at https://github.com/tnwinc/chocolatey-rabbitmq. Pull requests are welcome.
+
+#### Package Parameters
+
+ * `/NOMANAGEMENT` - this setting will override the default enabling of the RabbitMQ management console'
+ * `/RABBITMQBASE` - specify an optional RABBITMQ_BASE. Note the parameter has no underscore, but the environment variable does. ex:/RABBITMQBASE:C:\ProgramData\RabbitMQ. The default is %AppData\RabbitMQ'
+	
+	</description>
     <projectUrl>http://www.rabbitmq.com/</projectUrl>
     <tags>message queueing messaging admin</tags>
     <copyright>GoPivotal, Inc.</copyright>
