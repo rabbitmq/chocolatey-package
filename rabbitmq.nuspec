@@ -3,7 +3,7 @@
   <metadata>
     <id>rabbitmq</id>
     <title>RabbitMQ</title>
-    <version>3.5.2</version>
+    <version>3.5.3</version>
     <authors>GoPivotal</authors>
     <owners>Scott Smerchek</owners>
     <summary>RabbitMQ - Messaging that just works</summary>
@@ -11,6 +11,7 @@
 
 The RabbitMQ Chocolatey package source has a new home at https://github.com/tnwinc/chocolatey-rabbitmq. Pull requests are welcome.
 
+NOTE: Un-installation is now silent, no user interaction is required.
 #### Package Parameters
 
  * `/NOMANAGEMENT` - this setting will override the default enabling of the RabbitMQ management console'
