@@ -5,11 +5,14 @@ function Get-RabbitMQPath
 {
     $regPath = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\RabbitMQ"
     if (Test-Path "HKLM:\SOFTWARE\Wow6432Node\") { $regPath = "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\RabbitMQ" }
+    if (!(Test-Path $regPath)) { return $false }
     $path = Split-Path -Parent (Get-ItemProperty $regPath "UninstallString").UninstallString
     $version = (Get-ItemProperty $regPath "DisplayVersion").DisplayVersion
     return "$path\rabbitmq_server-$version"
 }
 
+#Write-Output (Get-RabbitMQPath)
+#exit
 
 ##This whole arguments section lifted shamelessly from the git.install package. Thanks guys!
 $arguments = @{};
@@ -47,6 +50,7 @@ if ($arguments['RABBITMQBASE'])
     $ENV:RABBITMQ_BASE = $arguments['RABBITMQBASE']
 }
 
+$toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 
 Install-ChocolateyPackage 'rabbitmq' 'EXE' '/S' 'http://www.rabbitmq.com/releases/rabbitmq-server/v3.5.4/rabbitmq-server-3.5.4.exe' -validExitCodes @(0)
 
