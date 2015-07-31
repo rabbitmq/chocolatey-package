@@ -11,9 +11,6 @@ function Get-RabbitMQPath
     return "$path\rabbitmq_server-$version"
 }
 
-#Write-Output (Get-RabbitMQPath)
-#exit
-
 ##This whole arguments section lifted shamelessly from the git.install package. Thanks guys!
 $arguments = @{};
 # /RabbitMQBase /GitAndUnixToolsOnPath /NoAutoCrlf
@@ -52,6 +49,16 @@ if ($arguments['RABBITMQBASE'])
 
 $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 
+
+#this tests to see if RabbitMQ is installed and removes it
+if (Get-RabbitMQPath)
+{
+    Write-Output "RabbitMQ found, removing..."
+    . "$toolsDir\chocolateyUninstall.ps1"
+    Write-Output "RabbitMQ found, removed"
+}
+
+#now install
 Install-ChocolateyPackage 'rabbitmq' 'EXE' '/S' 'http://www.rabbitmq.com/releases/rabbitmq-server/v3.5.4/rabbitmq-server-3.5.4.exe' -validExitCodes @(0)
 
 
