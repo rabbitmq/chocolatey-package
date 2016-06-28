@@ -3,7 +3,7 @@
   <metadata>
     <id>rabbitmq</id>
     <title>RabbitMQ</title>
-    <version>3.5.4</version>
+    <version>3.6.2</version>
     <authors>GoPivotal</authors>
     <owners>Scott Smerchek</owners>
     <summary>RabbitMQ - Messaging that just works</summary>
@@ -14,13 +14,8 @@ The RabbitMQ Chocolatey package source has a new home at https://github.com/tnwi
 #### Package Parameters
 
  * `/NOMANAGEMENT` - this setting will override the default enabling of the RabbitMQ management console'
- * `/RABBITMQBASE` - specify an optional RABBITMQ_BASE. Note the parameter has no underscore, but the environment variable does. ex:/RABBITMQBASE:C:\ProgramData\RabbitMQ. The default is %AppData\RabbitMQ'
-
-3.5.3: Un-installation is now silent, no user interaction is required.
-3.5.4: Smarter upgrade by removing first
-       Remove erlang service on uninstall if needed
- 
-	</description>
+ * `/RABBITMQBASE` - specify an optional RABBITMQ_BASE. Note the parameter has no underscore, but the environment variable does. ex:/RABBITMQBASE:C:\ProgramData\RabbitMQ. The default is %AppData\RabbitMQ' 
+  </description>
     <projectUrl>http://www.rabbitmq.com/</projectUrl>
     <tags>message queueing messaging admin</tags>
     <copyright>GoPivotal, Inc.</copyright>
@@ -32,8 +27,4 @@ The RabbitMQ Chocolatey package source has a new home at https://github.com/tnwi
     </dependencies>
     <releaseNotes></releaseNotes>
   </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <!--<file src="content\**" target="content" />-->
-  </files>
 </package>
