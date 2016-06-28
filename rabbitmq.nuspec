@@ -4,12 +4,14 @@
     <id>rabbitmq</id>
     <title>RabbitMQ</title>
     <version>3.6.2</version>
-    <authors>GoPivotal</authors>
-    <owners>Scott Smerchek</owners>
-    <summary>RabbitMQ - Messaging that just works</summary>
-    <description>RabbitMQ is open source message broker software (i.e., message-oriented middleware) that implements the Advanced Message Queuing Protocol (AMQP) standard. The RabbitMQ server is written in Erlang and is built on the Open Telecom Platform framework for clustering and failover.
+    <authors>Pivotal Software, Inc.</authors>
+    <owners>Team RabbitMQ</owners>
+    <summary>RabbitMQ</summary>
+    <description>
+RabbitMQ, a multi-protocol open source messaging broker
 
-The RabbitMQ Chocolatey package source has a new home at https://github.com/tnwinc/chocolatey-rabbitmq. Pull requests are welcome.
+The RabbitMQ Chocolatey package source has a new home at https://github.com/rabbitmq/chocolatey-package.
+Pull requests are welcome.
 
 #### Package Parameters
 
@@ -17,13 +19,13 @@ The RabbitMQ Chocolatey package source has a new home at https://github.com/tnwi
  * `/RABBITMQBASE` - specify an optional RABBITMQ_BASE. Note the parameter has no underscore, but the environment variable does. ex:/RABBITMQBASE:C:\ProgramData\RabbitMQ. The default is %AppData\RabbitMQ' 
   </description>
     <projectUrl>http://www.rabbitmq.com/</projectUrl>
-    <tags>message queueing messaging admin</tags>
-    <copyright>GoPivotal, Inc.</copyright>
+    <tags>message queueing messaging rabbitmq amqp mqtt stomp</tags>
+    <copyright>Pivotal Software, Inc.</copyright>
     <licenseUrl>http://www.rabbitmq.com/mpl.html</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <iconUrl>https://github.com/smerchek/nugetpackages/raw/master/RabbitMQ/rabbitmq-logo.png</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/rabbitmq/chocolatey-package/master/rabbitmq-logo.png</iconUrl>
     <dependencies>
-      <dependency id="erlang" version="15.3.1" />
+      <dependency id="erlang" version="19.0" />
     </dependencies>
     <releaseNotes></releaseNotes>
   </metadata>
