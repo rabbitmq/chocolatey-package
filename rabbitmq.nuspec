@@ -29,4 +29,7 @@ Pull requests are welcome.
     </dependencies>
     <releaseNotes></releaseNotes>
   </metadata>
+  <files>
+      <file src="tools\*" target="tools" exclude=".*" />
+  </files>
 </package>
