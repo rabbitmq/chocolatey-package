@@ -21,7 +21,7 @@ function Get-ChocolateyPackageParameters {
 
 function Get-RabbitMQPath {
   $regPath = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\RabbitMQ"
-  if (Test-Path "HKLM:\SOFTWARE\Wow6432Node\") {
+  if (Test-Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\RabbitMQ") {
     $regPath = "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\RabbitMQ"
   }
   
