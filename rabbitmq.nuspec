@@ -3,7 +3,7 @@
   <metadata>
     <id>rabbitmq</id>
     <title>RabbitMQ</title>
-    <version>3.6.10</version>
+    <version>3.6.14</version>
     <authors>Pivotal Software, Inc.</authors>
     <owners>Team RabbitMQ</owners>
     <summary>RabbitMQ</summary>
@@ -16,11 +16,11 @@ Pull requests are welcome.
 #### Package Parameters
 
  * `/NOMANAGEMENT` - this setting will override the default enabling of the RabbitMQ management console'
- * `/RABBITMQBASE` - specify an optional RABBITMQ_BASE. Note the parameter has no underscore, but the environment variable does. ex:/RABBITMQBASE:C:\ProgramData\RabbitMQ. The default is %AppData\RabbitMQ' 
+ * `/RABBITMQBASE` - specify an optional RABBITMQ_BASE. Note the parameter has no underscore, but the environment variable does. ex:/RABBITMQBASE:C:\ProgramData\RabbitMQ. The default is %AppData\RabbitMQ'
     </description>
     <projectUrl>http://www.rabbitmq.com/</projectUrl>
     <packageSourceUrl>https://github.com/rabbitmq/rabbitmq-server</packageSourceUrl>
-    <releaseNotes>https://github.com/rabbitmq/rabbitmq-server/releases/tag/rabbitmq_v3_6_10</releaseNotes>
+    <releaseNotes>https://github.com/rabbitmq/rabbitmq-server/releases/tag/rabbitmq_v3_6_14</releaseNotes>
     <tags>message queueing messaging rabbitmq amqp mqtt stomp admin</tags>
     <copyright>Pivotal Software, Inc.</copyright>
     <licenseUrl>http://www.rabbitmq.com/mpl.html</licenseUrl>
