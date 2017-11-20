@@ -20,7 +20,7 @@ Pull requests are welcome.
     </description>
     <projectUrl>http://www.rabbitmq.com/</projectUrl>
     <packageSourceUrl>https://github.com/rabbitmq/rabbitmq-server</packageSourceUrl>
-    <releaseNotes>https://github.com/rabbitmq/rabbitmq-server/releases/tag/rabbitmq_v3_6_10</releaseNotes>
+    <releaseNotes>https://github.com/rabbitmq/rabbitmq-server/releases/tag/rabbitmq_v3_6_14</releaseNotes>
     <tags>message queueing messaging rabbitmq amqp mqtt stomp admin</tags>
     <copyright>Pivotal Software, Inc.</copyright>
     <licenseUrl>http://www.rabbitmq.com/mpl.html</licenseUrl>
