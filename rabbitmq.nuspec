@@ -3,7 +3,7 @@
   <metadata>
     <id>rabbitmq</id>
     <title>RabbitMQ</title>
-    <version>3.7.3</version>
+    <version>3.7.6</version>
     <authors>Pivotal Software, Inc.</authors>
     <owners>Team RabbitMQ</owners>
     <summary>RabbitMQ</summary>
@@ -20,14 +20,14 @@ Pull requests are welcome.
     </description>
     <projectUrl>http://www.rabbitmq.com/</projectUrl>
     <packageSourceUrl>https://github.com/rabbitmq/rabbitmq-server</packageSourceUrl>
-    <releaseNotes>https://github.com/rabbitmq/rabbitmq-server/releases/tag/v3.7.3</releaseNotes>
+    <releaseNotes>https://github.com/rabbitmq/rabbitmq-server/releases/tag/v3.7.6</releaseNotes>
     <tags>message queueing messaging rabbitmq amqp mqtt stomp admin</tags>
     <copyright>Pivotal Software, Inc.</copyright>
     <licenseUrl>http://www.rabbitmq.com/mpl.html</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <iconUrl>https://raw.githubusercontent.com/rabbitmq/chocolatey-package/master/rabbitmq-logo.png</iconUrl>
     <dependencies>
-      <dependency id="erlang" version="19.3" />
+      <dependency id="erlang" version="[19.3, 20.3]" />
     </dependencies>
   </metadata>
   <files>
