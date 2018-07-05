@@ -12,8 +12,5 @@ Install-ChocolateyPackage 'rabbitmq' 'EXE' '/S' 'https://github.com/rabbitmq/rab
 
 $rabbitPath = Get-RabbitMQPath
 if (-not $arguments.ContainsKey('NOMANAGEMENT')) {
-  Start-Process "$rabbitPath\sbin\rabbitmq-service.bat" 'enable rabbitmq_management --offline' -NoNewWindow -Wait
   Start-Process "$rabbitPath\sbin\rabbitmq-plugins.bat" 'enable rabbitmq_management' -NoNewWindow -Wait
 }
-
-Start-Process "$rabbitPath\sbin\rabbitmq-service.bat" 'install' -NoNewWindow -Wait
