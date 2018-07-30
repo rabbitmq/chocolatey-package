@@ -19,7 +19,8 @@ Pull requests are welcome.
  * `/RABBITMQBASE` - specify an optional RABBITMQ_BASE. Note the parameter has no underscore, but the environment variable does. ex:/RABBITMQBASE:C:\ProgramData\RabbitMQ. The default is %AppData\RabbitMQ'
     </description>
     <projectUrl>http://www.rabbitmq.com/</projectUrl>
-    <packageSourceUrl>https://github.com/rabbitmq/rabbitmq-server</packageSourceUrl>
+    <projectSourceUrl>https://github.com/rabbitmq/rabbitmq-server</projectSourceUrl>
+    <packageSourceUrl>https://github.com/rabbitmq/chocolatey-package</packageSourceUrl>
     <releaseNotes>https://github.com/rabbitmq/rabbitmq-server/releases/tag/v3.7.6</releaseNotes>
     <tags>message queueing messaging rabbitmq amqp mqtt stomp admin</tags>
     <copyright>Pivotal Software, Inc.</copyright>
