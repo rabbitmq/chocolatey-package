@@ -3,7 +3,7 @@
   <metadata>
     <id>rabbitmq</id>
     <title>RabbitMQ</title>
-    <version>3.7.7</version>
+    <version>3.7.12</version>
     <authors>Pivotal Software, Inc.</authors>
     <owners>Team RabbitMQ</owners>
     <summary>RabbitMQ</summary>
@@ -21,7 +21,7 @@ Pull requests are welcome.
     <projectUrl>http://www.rabbitmq.com/</projectUrl>
     <projectSourceUrl>https://github.com/rabbitmq/rabbitmq-server</projectSourceUrl>
     <packageSourceUrl>https://github.com/rabbitmq/chocolatey-package</packageSourceUrl>
-    <releaseNotes>https://github.com/rabbitmq/rabbitmq-server/releases/tag/v3.7.6</releaseNotes>
+    <releaseNotes>https://github.com/rabbitmq/rabbitmq-server/releases/tag/v3.7.12</releaseNotes>
     <tags>message queueing messaging rabbitmq amqp mqtt stomp admin</tags>
     <copyright>Pivotal Software, Inc.</copyright>
     <licenseUrl>http://www.rabbitmq.com/mpl.html</licenseUrl>
