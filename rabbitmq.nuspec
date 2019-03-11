@@ -28,7 +28,7 @@ Pull requests are welcome.
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <iconUrl>https://raw.githubusercontent.com/rabbitmq/chocolatey-package/master/rabbitmq-logo.png</iconUrl>
     <dependencies>
-      <dependency id="erlang" version="[20.3,21.*]" />
+      <dependency id="erlang" version="[20.3,22.0)" />
     </dependencies>
   </metadata>
   <files>
