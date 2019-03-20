@@ -18,13 +18,13 @@ Pull requests are welcome.
  * `/NOMANAGEMENT` - this setting will override the default enabling of the RabbitMQ management console'
  * `/RABBITMQBASE` - specify an optional RABBITMQ_BASE. Note the parameter has no underscore, but the environment variable does. ex:/RABBITMQBASE:C:\ProgramData\RabbitMQ. The default is %AppData\RabbitMQ'
     </description>
-    <projectUrl>http://www.rabbitmq.com/</projectUrl>
+    <projectUrl>https://www.rabbitmq.com/</projectUrl>
     <projectSourceUrl>https://github.com/rabbitmq/rabbitmq-server</projectSourceUrl>
     <packageSourceUrl>https://github.com/rabbitmq/chocolatey-package</packageSourceUrl>
     <releaseNotes>https://github.com/rabbitmq/rabbitmq-server/releases/tag/v3.7.13</releaseNotes>
     <tags>message queueing messaging rabbitmq amqp mqtt stomp admin</tags>
     <copyright>Pivotal Software, Inc.</copyright>
-    <licenseUrl>http://www.rabbitmq.com/mpl.html</licenseUrl>
+    <licenseUrl>https://www.rabbitmq.com/mpl.html</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <iconUrl>https://raw.githubusercontent.com/rabbitmq/chocolatey-package/master/rabbitmq-logo.png</iconUrl>
     <dependencies>
