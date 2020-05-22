@@ -6,5 +6,4 @@ originally developed by Robert Labrie (Navex Global).
 
 ## Maintainers
 
-Team RabbitMQ has taken over package maintenance as of RabbitMQ 3.6.3 (GA) release
-in late June 2016.
+Team RabbitMQ has taken over package maintenance in mid-2016.
