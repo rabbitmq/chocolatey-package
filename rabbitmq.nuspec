@@ -4,7 +4,7 @@
     <id>rabbitmq</id>
     <title>RabbitMQ</title>
     <version>3.8.3</version>
-    <authors>Pivotal Software, Inc.</authors>
+    <authors>VMware, Inc.</authors>
     <owners>Team RabbitMQ</owners>
     <summary>RabbitMQ</summary>
     <description>
@@ -23,12 +23,12 @@ Pull requests are welcome.
     <packageSourceUrl>https://github.com/rabbitmq/chocolatey-package</packageSourceUrl>
     <releaseNotes>https://github.com/rabbitmq/rabbitmq-server/releases/tag/v3.8.3</releaseNotes>
     <tags>message queueing messaging rabbitmq amqp mqtt stomp admin</tags>
-    <copyright>Pivotal Software, Inc.</copyright>
+    <copyright>VMware, Inc.</copyright>
     <licenseUrl>https://www.rabbitmq.com/mpl.html</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <iconUrl>https://raw.githubusercontent.com/rabbitmq/chocolatey-package/master/rabbitmq-logo.png</iconUrl>
     <dependencies>
-      <dependency id="erlang" version="[21.3,23.0)" />
+      <dependency id="erlang" version="[21.3,24.0)" />
     </dependencies>
   </metadata>
   <files>
