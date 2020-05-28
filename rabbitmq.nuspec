@@ -3,26 +3,28 @@
   <metadata>
     <id>rabbitmq</id>
     <title>RabbitMQ</title>
-    <version>3.8.3</version>
+    <version>3.8.4</version>
     <authors>VMware, Inc.</authors>
     <owners>Team RabbitMQ</owners>
     <summary>RabbitMQ</summary>
     <description>
-RabbitMQ, a multi-protocol open source messaging broker
+RabbitMQ, a multi-protocol open source messaging broker.
 
-The RabbitMQ Chocolatey package source has a new home at https://github.com/rabbitmq/chocolatey-package.
-Pull requests are welcome.
+The RabbitMQ Chocolatey package source has a new home at https://github.com/rabbitmq/chocolatey-package
+Contributions via pull requests are welcome.
+
+If you are looking for community help with RabbitMQ, see https://www.rabbitmq.com/contact.html#community-resources.
 
 #### Package Parameters
 
- * `/NOMANAGEMENT` - this setting will override the default enabling of the RabbitMQ management console'
+ * `/NOMANAGEMENT` - set this to not enable RabbitMQ management plugin'
  * `/RABBITMQBASE` - specify an optional RABBITMQ_BASE. Note the parameter has no underscore, but the environment variable does. ex:/RABBITMQBASE:C:\ProgramData\RabbitMQ. The default is %AppData\RabbitMQ'
     </description>
     <projectUrl>https://www.rabbitmq.com/</projectUrl>
     <projectSourceUrl>https://github.com/rabbitmq/rabbitmq-server</projectSourceUrl>
     <packageSourceUrl>https://github.com/rabbitmq/chocolatey-package</packageSourceUrl>
-    <releaseNotes>https://github.com/rabbitmq/rabbitmq-server/releases/tag/v3.8.3</releaseNotes>
-    <tags>message queueing messaging rabbitmq amqp mqtt stomp admin</tags>
+    <releaseNotes>https://github.com/rabbitmq/rabbitmq-server/releases/tag/v3.8.4</releaseNotes>
+    <tags>messaging rabbitmq amqp mqtt stomp queueing microservices admin</tags>
     <copyright>VMware, Inc.</copyright>
     <licenseUrl>https://www.rabbitmq.com/mpl.html</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
