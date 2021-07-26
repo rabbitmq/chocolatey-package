@@ -30,7 +30,7 @@ If you are looking for community help with RabbitMQ, see https://www.rabbitmq.co
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <iconUrl>https://raw.githubusercontent.com/rabbitmq/chocolatey-package/master/rabbitmq-logo.png</iconUrl>
     <dependencies>
-      <dependency id="erlang" version="[23.2,24.0)" />
+      <dependency id="erlang" version="[23.2,25.0)" />
     </dependencies>
   </metadata>
   <files>
