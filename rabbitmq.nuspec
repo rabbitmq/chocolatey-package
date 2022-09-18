@@ -3,7 +3,7 @@
   <metadata>
     <id>rabbitmq</id>
     <title>RabbitMQ</title>
-    <version>3.10.7</version>
+    <version>3.11.0</version>
     <authors>VMware, Inc.</authors>
     <owners>Team RabbitMQ</owners>
     <summary>RabbitMQ</summary>
@@ -30,7 +30,7 @@ If you are looking for community help with RabbitMQ, see https://www.rabbitmq.co
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <iconUrl>https://raw.githubusercontent.com/rabbitmq/chocolatey-package/master/rabbitmq-logo.png</iconUrl>
     <dependencies>
-      <dependency id="erlang" version="[23.2,25.0)" />
+      <dependency id="erlang" version="[25.0,25.0)" />
     </dependencies>
   </metadata>
   <files>
