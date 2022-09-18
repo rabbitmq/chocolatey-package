@@ -7,9 +7,9 @@ originally developed by Robert Labrie (Navex Global).
 
 | Branch name   | Package version |
 | ------------- | --------------- |
+| 3.11.x        | RabbitMQ 3.11.x |
 | 3.10.x        | RabbitMQ 3.10.x |
 | 3.9.x         | RabbitMQ 3.9.x  |
-| 3.8.x         | RabbitMQ 3.8.x  |
 
 ## Maintainers
 
