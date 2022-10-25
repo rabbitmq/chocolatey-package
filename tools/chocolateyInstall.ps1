@@ -8,6 +8,7 @@ if ($arguments['RABBITMQBASE']) {
   ${Env:RABBITMQ_BASE} = $arguments['RABBITMQBASE']
 }
 
+$env:HOMEDRIVE=C:
 Install-ChocolateyPackage 'rabbitmq' 'EXE' '/S' 'https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.10.10/rabbitmq-server-3.10.10.exe'
 
 $rabbitPath = Get-RabbitMQPath
