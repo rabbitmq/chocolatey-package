@@ -9,7 +9,6 @@ originally developed by Robert Labrie (Navex Global).
 | ------------- | --------------- |
 | 3.11.x        | RabbitMQ 3.11.x |
 | 3.10.x        | RabbitMQ 3.10.x |
-| 3.9.x         | RabbitMQ 3.9.x  |
 
 ## Maintainers
 
