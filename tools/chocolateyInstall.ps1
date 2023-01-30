@@ -8,7 +8,7 @@ if ($arguments['RABBITMQBASE']) {
   ${Env:RABBITMQ_BASE} = $arguments['RABBITMQBASE']
 }
 
-Install-ChocolateyPackage 'rabbitmq' 'EXE' '/S' 'https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.9.27/rabbitmq-server-3.9.27.exe'
+Install-ChocolateyPackage 'rabbitmq' 'EXE' '/S' 'https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.9.28/rabbitmq-server-3.9.28.exe'
 
 $rabbitPath = Get-RabbitMQPath
 if (-not $arguments.ContainsKey('NOMANAGEMENT')) {
