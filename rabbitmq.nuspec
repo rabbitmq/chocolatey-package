@@ -30,7 +30,8 @@ If you are looking for community help with RabbitMQ, see https://www.rabbitmq.co
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <iconUrl>https://raw.githubusercontent.com/rabbitmq/chocolatey-package/3.12.x/rabbitmq-logo.png</iconUrl>
     <dependencies>
-      <dependency id="erlang" version="[25.0,26.0]" />
+      <!-- https://learn.microsoft.com/en-us/nuget/concepts/package-versioning#version-ranges -->
+      <dependency id="erlang" version="[25.0,27.0)" />
     </dependencies>
   </metadata>
   <files>
