@@ -26,8 +26,8 @@ function Get-RabbitMQPath {
   }
 
   if (Test-Path $regPath) {
-    $path = Split-Path -Parent (Get-ItemProperty $regPath "UninstallString").UninstallString
+    $path = (Get-ItemProperty -Name Install_Dir -Path 'HKLM:\SOFTWARE\WOW6432Node\VMware, Inc.\RabbitMQ Server').Install_Dir
     $version = (Get-ItemProperty $regPath "DisplayVersion").DisplayVersion
-    return "$path\rabbitmq_server-$version"
+    return Join-Path -Path $path -ChildPath "rabbitmq_server-$version"
   }
 }
