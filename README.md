@@ -5,8 +5,9 @@ originally developed by Robert Labrie (Navex Global).
 
 ## Branch structure
 
-| Branch name   | Package version |
+| Branch name   | RabbitMQ series |
 | ------------- | --------------- |
+| 3.13.x        | RabbitMQ 3.13.x |
 | 3.12.x        | RabbitMQ 3.12.x |
 | 3.11.x        | RabbitMQ 3.11.x |
 
