@@ -3,7 +3,7 @@
   <metadata>
     <id>rabbitmq</id>
     <title>RabbitMQ</title>
-    <version>3.12.11</version>
+    <version>3.12.12</version>
     <authors>VMware, Inc.</authors>
     <owners>Team RabbitMQ</owners>
     <summary>RabbitMQ</summary>
@@ -23,7 +23,7 @@ If you are looking for community help with RabbitMQ, see https://www.rabbitmq.co
     <projectUrl>https://www.rabbitmq.com/</projectUrl>
     <projectSourceUrl>https://github.com/rabbitmq/rabbitmq-server</projectSourceUrl>
     <packageSourceUrl>https://github.com/rabbitmq/chocolatey-package</packageSourceUrl>
-    <releaseNotes>https://github.com/rabbitmq/rabbitmq-server/releases/tag/v3.12.11</releaseNotes>
+    <releaseNotes>https://github.com/rabbitmq/rabbitmq-server/releases/tag/v3.12.12</releaseNotes>
     <tags>messaging rabbitmq amqp mqtt stomp queueing streaming microservices admin</tags>
     <copyright>VMware, Inc.</copyright>
     <licenseUrl>https://www.rabbitmq.com/mpl.html</licenseUrl>
