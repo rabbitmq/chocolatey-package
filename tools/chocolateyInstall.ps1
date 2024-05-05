@@ -8,7 +8,7 @@ if ($arguments['RABBITMQBASE']) {
   ${Env:RABBITMQ_BASE} = $arguments['RABBITMQBASE']
 }
 
-Install-ChocolateyPackage -PackageName 'rabbitmq' -FileType 'exe' -SilentArgs '/S' -Url 'https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.12.13/rabbitmq-server-3.12.13.exe' -ChecksumType sha256 -Checksum 0701a3c39764f1f243e2cdb6a09fadcf21867fc34624bcf7ffff73140f9887e6
+Install-ChocolateyPackage -PackageName 'rabbitmq' -FileType 'exe' -SilentArgs '/S' -Url 'https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.12.14/rabbitmq-server-3.12.14.exe' -ChecksumType sha256 -Checksum c47659d4d0307ad156cee57eb98831913bd77d2726febf8ba4a536a35395dd7e
 
 $rabbitPath = Get-RabbitMQPath
 if (-not $arguments.ContainsKey('NOMANAGEMENT')) {
