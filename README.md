@@ -8,9 +8,9 @@ originally developed by Robert Labrie (Navex Global).
 | Branch name   | RabbitMQ series |
 | ------------- | --------------- |
 | 3.13.x        | RabbitMQ 3.13.x |
-| 3.12.x        | RabbitMQ 3.12.x |
-| 3.11.x        | RabbitMQ 3.11.x |
 
 ## Maintainers
 
-Team RabbitMQ has taken over package maintenance in mid-2016.
+The original maintainer of this package is @robertlabrie.
+
+RabbitMQ Core Team has been maintaining this package since 2016.
