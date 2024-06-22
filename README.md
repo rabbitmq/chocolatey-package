@@ -1,7 +1,6 @@
 # Chocolatey RabbitMQ Package
 
-This repository contains metadata and scripts used to produce the [RabbitMQ Chocolatey package](https://chocolatey.org/packages/rabbitmq),
-originally developed by Robert Labrie (Navex Global).
+This repository contains metadata and scripts used to produce the [RabbitMQ Chocolatey package](https://chocolatey.org/packages/rabbitmq).
 
 ## Branch structure
 
