@@ -10,6 +10,6 @@ This repository contains metadata and scripts used to produce the [RabbitMQ Choc
 
 ## Maintainers
 
-The original maintainer of this package is @robertlabrie.
+The original author of this package is @robertlabrie.
 
 RabbitMQ Core Team has been maintaining this package since 2016.
