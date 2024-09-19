@@ -26,7 +26,7 @@ If you are looking for community help with RabbitMQ, see https://www.rabbitmq.co
     <releaseNotes>https://github.com/rabbitmq/rabbitmq-server/releases/tag/v3.13.7</releaseNotes>
     <tags>messaging rabbitmq amqp mqtt stomp queueing streaming microservices admin</tags>
     <copyright>VMware, Inc.</copyright>
-    <licenseUrl>https://www.rabbitmq.com/mpl.html</licenseUrl>
+    <licenseUrl>https://www.mozilla.org/en-US/MPL/2.0/</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <iconUrl>https://raw.githubusercontent.com/rabbitmq/chocolatey-package/3.13.x/rabbitmq-logo.png</iconUrl>
     <dependencies>
