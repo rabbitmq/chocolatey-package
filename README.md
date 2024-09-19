@@ -6,6 +6,7 @@ This repository contains metadata and scripts used to produce the [RabbitMQ Choc
 
 | Branch name   | [RabbitMQ release series](https://www.rabbitmq.com/release-information) |
 | ------------- | --------------- |
+| 4.0.x        | RabbitMQ 4.0.x |
 | 3.13.x        | RabbitMQ 3.13.x |
 
 ## Maintainers
