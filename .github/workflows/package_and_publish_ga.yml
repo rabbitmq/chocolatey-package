@@ -1,7 +1,7 @@
 name: "Package and Publish (GA)"
 on:
   push:
-    branches: [main]
+    branches: [4.0.x]
 jobs:
   package:
     runs-on: ubuntu-latest
