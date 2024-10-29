@@ -1,0 +1,12 @@
+name: "Package and Publish (GA)"
+on:
+  push:
+    branches: [main]
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    container:
+      image: "chocolatey/choco"
+    steps:
+      - name: "Install git"
+        run: apt-get install git -y
