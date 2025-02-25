@@ -6,8 +6,8 @@ on:
   schedule:
     - cron: '30 5 * * *'
 jobs:
-  package:
+  build-package:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-      - run: ${{ github.workspace }}\build-package.ps1
+      - run: ${{ github.workspace }}\build-package.ps1 -Push -ApiKey ${{ secrets.CHOCOLATEY_API_KEY }}

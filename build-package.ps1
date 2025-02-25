@@ -1,6 +1,6 @@
 param(
     [switch]$Push = $false,
-    [string]$ApiKey = $env:CHOCOLATEY_API_KEY
+    [string]$ApiKey = $null
 )
 
 if ($Push)
