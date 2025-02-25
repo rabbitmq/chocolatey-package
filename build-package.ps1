@@ -3,12 +3,6 @@ param(
     [string]$ApiKey = $null
 )
 
-if ($Push)
-{
-    $PackAndTest = $true
-    Write-Host "[INFO] PACKAGE WILL BE TESTED AND PUSHED"
-}
-
 $DebugPreference = "Continue"
 $ErrorActionPreference = 'Stop'
 # Set-PSDebug -Strict -Trace 1
@@ -115,6 +109,16 @@ else
 
 if ($Push)
 {
+    & choco install rabbitmq -dv -source ".;https://chocolatey.org/api/v2/"
+    if ($LASTEXITCODE -eq 0)
+    {
+        Write-Host "[INFO] 'choco install rabbitmq' succeeded."
+    }
+    else
+    {
+        throw "[ERROR] 'choco install rabbitmq' failed!"
+    }
+
     & choco apikey --yes --key $ApiKey --source https://push.chocolatey.org/
     if ($LASTEXITCODE -eq 0)
     {
@@ -135,5 +139,3 @@ if ($Push)
         throw "[ERROR] 'choco push' failed!"
     }
 }
-
-Set-PSDebug -Off
