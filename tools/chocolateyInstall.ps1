@@ -1,16 +1,22 @@
-﻿if(!$PSScriptRoot){ $PSScriptRoot = Split-Path $MyInvocation.MyCommand.Path -Parent }
-. "$PSScriptRoot\ChocolateyHelpers.ps1"
-
-$arguments = Get-ChocolateyPackageParameters ${Env:ChocolateyPackageParameters}
-
-if ($arguments['RABBITMQBASE']) {
-  [System.Environment]::SetEnvironmentVariable("RABBITMQ_BASE", $arguments['RABBITMQBASE'], "Machine" )
-  ${Env:RABBITMQ_BASE} = $arguments['RABBITMQBASE']
+if (!$PSScriptRoot)
+{
+    $PSScriptRoot = Split-Path $MyInvocation.MyCommand.Path -Parent
 }
 
-Install-ChocolateyPackage -PackageName 'rabbitmq' -FileType 'exe' -SilentArgs '/S' -Url 'https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.13.0/rabbitmq-server-3.13.0.exe' -Checksum 'A3B1B54D4105BBA33CCEFC8EAD7CA10C0087148F1ED29B7FF9A39476501354FF'
+. "$PSScriptRoot\ChocolateyHelpers.ps1"
 
+$pp = Get-PackageParameters
+
+if ($pp['RABBITMQBASE'])
+{
+    [System.Environment]::SetEnvironmentVariable("RABBITMQ_BASE", $pp['RABBITMQBASE'], "Machine" )
+    ${Env:RABBITMQ_BASE} = $pp['RABBITMQBASE']
+}
+
+# https://github.com/rabbitmq/rabbitmq-server/releases/download/v4.x.y/rabbitmq-server-4.x.y.exe
+Install-ChocolateyPackage -PackageName 'rabbitmq' -FileType 'exe' -SilentArgs '/S' -Url 'https://github.com/rabbitmq/rabbitmq-server/releases/download/v4.0.6/rabbitmq-server-4.0.6.exe' -ChecksumType sha256 -Checksum 8341196090B1CF705B5D21EBB73F9CAE9BEA6F7362DC7E846594CA8428592D06
 $rabbitPath = Get-RabbitMQPath
-if (-not $arguments.ContainsKey('NOMANAGEMENT')) {
-  Start-Process "$rabbitPath\sbin\rabbitmq-plugins.bat" 'enable rabbitmq_management' -NoNewWindow -Wait
+if (-not $pp.ContainsKey('NOMANAGEMENT'))
+{
+    Start-Process -Verbose -FilePath "$rabbitPath\sbin\rabbitmq-plugins.bat" -ArgumentList 'enable','rabbitmq_management' -NoNewWindow -Wait
 }
