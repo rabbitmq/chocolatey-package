@@ -1,0 +1,12 @@
+name: build-push-chocolatey
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '30 5 * * *'
+jobs:
+  package:
+    runs-on: windows-latest
+    steps:
+      - run: ${{ github.workspace }}\build-package.ps1

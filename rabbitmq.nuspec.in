@@ -3,8 +3,8 @@
   <metadata>
     <id>rabbitmq</id>
     <title>RabbitMQ</title>
-    <version>4.0.6</version>
-    <authors>VMware, Inc.</authors>
+    <version>@@RABBITMQ_VERSION@@</version>
+    <authors>Broadcom, Inc.</authors>
     <owners>Team RabbitMQ</owners>
     <summary>RabbitMQ</summary>
     <description>
@@ -23,12 +23,12 @@ If you are looking for community help with RabbitMQ, see https://www.rabbitmq.co
     <projectUrl>https://www.rabbitmq.com/</projectUrl>
     <projectSourceUrl>https://github.com/rabbitmq/rabbitmq-server</projectSourceUrl>
     <packageSourceUrl>https://github.com/rabbitmq/chocolatey-package</packageSourceUrl>
-    <releaseNotes>https://github.com/rabbitmq/rabbitmq-server/releases/tag/v4.0.6</releaseNotes>
+    <releaseNotes>https://github.com/rabbitmq/rabbitmq-server/releases/tag/v@@RABBITMQ_VERSION@@</releaseNotes>
     <tags>messaging rabbitmq amqp mqtt stomp queueing streaming microservices admin</tags>
     <copyright>VMware, Inc.</copyright>
     <licenseUrl>https://www.mozilla.org/en-US/MPL/2.0/</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <iconUrl>https://raw.githubusercontent.com/rabbitmq/chocolatey-package/4.0.x/rabbitmq-logo.png</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/rabbitmq/chocolatey-package/refs/heads/main/rabbitmq-logo.png</iconUrl>
     <dependencies>
       <!-- https://learn.microsoft.com/en-us/nuget/concepts/package-versioning#version-ranges -->
       <dependency id="erlang" version="[26.0,28.0)" />
