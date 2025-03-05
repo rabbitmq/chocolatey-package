@@ -35,6 +35,8 @@ If you are looking for community help with RabbitMQ, see https://www.rabbitmq.co
     </dependencies>
   </metadata>
   <files>
-      <file src="tools\*" target="tools" exclude=".*" />
+    <file src="tools\chocolateyInstall.ps1" target="tools" />
+    <file src="tools\chocolateyUninstall.ps1" target="tools" />
+    <file src="tools\chocolateyHelpers.ps1" target="tools" />
   </files>
 </package>
