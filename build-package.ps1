@@ -35,8 +35,8 @@ Write-Host "[INFO] RabbitMQ version: $rabbitmq_version ($rabbitmq_version_sortab
 
 # Get latest published RabbitMQ version
 New-Variable -Name rabbitmq_choco_info -Option Constant `
-    -Value (& choco search rabbitmq --exact --limit-output | ConvertFrom-CSV -Delimiter '|' -Header 'Name','Version')
-New-Variable -Name rabbitmq_choco_version -Option Constant -Value $rabbitmq_choco_info.version
+    -Value (& choco search rabbitmq --limit-output | ConvertFrom-CSV -Delimiter '|' -Header 'Name','Version' | Where-Object { $_.Name -eq 'rabbitmq' })
+New-Variable -Name rabbitmq_choco_version -Option Constant -Value $rabbitmq_choco_info.Version
 New-Variable -Name rabbitmq_choco_version_sortable -Option Constant -Value ($rabbitmq_choco_version -replace '\.','')
 
 Write-Host "[INFO] chocolatey.org RabbitMQ version: $rabbitmq_choco_version ($rabbitmq_choco_version_sortable)"
