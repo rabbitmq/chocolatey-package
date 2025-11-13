@@ -1,4 +1,5 @@
 param(
+    [switch]$Force = $false,
     [switch]$Push = $false,
     [string]$ApiKey = $null
 )
@@ -12,23 +13,12 @@ Set-StrictMode -Version 'Latest' -ErrorAction 'Stop' -Verbose
 New-Variable -Name curdir  -Option Constant -Value $PSScriptRoot
 Write-Host "[INFO] curdir: $curdir"
 
-try
-{
-  $ProgressPreference = 'SilentlyContinue'
-  New-Variable -Name rabbitmq_tags -Option Constant `
-    -Value (Invoke-WebRequest -Uri 'https://api.github.com/repos/rabbitmq/rabbitmq-server/tags?per_page=100' | ConvertFrom-Json)
-}
-finally
-{
-  $ProgressPreference = 'Continue'
-}
-
 New-Variable -Name latest_rabbitmq_tag -Option Constant `
-  -Value ($rabbitmq_tags | Where-Object { $_.name -match '^v4\.[0-9](\.[0-9](\.[0-9])?)?$' } | Sort-Object -Descending { $_.name } | Select-Object -First 1)
+  -Value $(& gh.exe release view --json tagName --repo rabbitmq/rabbitmq-server --jq .tagName)
 
-Write-Host "[INFO] latest RabbitMQ tag:" $latest_rabbitmq_tag.name
+Write-Host "[INFO] latest RabbitMQ tag:" $latest_rabbitmq_tag
 
-New-Variable -Name rabbitmq_version -Option Constant -Value ($latest_rabbitmq_tag.name -replace 'v','')
+New-Variable -Name rabbitmq_version -Option Constant -Value ($latest_rabbitmq_tag -replace 'v','')
 New-Variable -Name rabbitmq_version_sortable -Option Constant -Value ($rabbitmq_version -replace '\.','')
 
 Write-Host "[INFO] RabbitMQ version: $rabbitmq_version ($rabbitmq_version_sortable)"
@@ -43,44 +33,20 @@ Write-Host "[INFO] chocolatey.org RabbitMQ version: $rabbitmq_choco_version ($ra
 
 if (-Not($rabbitmq_version_sortable -gt $rabbitmq_choco_version_sortable))
 {
-    Write-Host "[INFO] newest RabbitMQ version already available on chocolatey.org, exiting!"
-    exit 0
-}
-
-New-Variable -Name rabbitmq_release_uri -Option Constant `
-  -Value ("https://api.github.com/repos/rabbitmq/rabbitmq-server/releases/tags/" + $latest_rabbitmq_tag.name)
-
-try
-{
-  $ProgressPreference = 'SilentlyContinue'
-  New-Variable -Name rabbitmq_release_json -Option Constant `
-    -Value (Invoke-WebRequest -Uri $rabbitmq_release_uri | ConvertFrom-Json)
-}
-finally
-{
-  $ProgressPreference = 'Continue'
-}
-
-New-Variable -Name rabbitmq_installer_asset  -Option Constant `
-    -Value ($rabbitmq_release_json.assets | Where-Object { $_.name -match '^rabbitmq-server-[0-9.]+\.exe$' })
-
-New-Variable -Name rabbitmq_installer_exe -Option Constant -Value $rabbitmq_installer_asset.name
-
-New-Variable -Name rabbitmq_installer_uri -Option Constant -Value $rabbitmq_installer_asset.browser_download_url
-
-if (!(Test-Path -Path $rabbitmq_installer_exe))
-{
-    Write-Host "[INFO] downloading from " $rabbitmq_installer_uri
-    try
+    Write-Host "[INFO] newest RabbitMQ version already available on chocolatey.org"
+    if (-Not($Force))
     {
-        $ProgressPreference = 'SilentlyContinue'
-        Invoke-WebRequest -Uri $rabbitmq_installer_uri -OutFile $rabbitmq_installer_exe
-    }
-    finally
-    {
-        $ProgressPreference = 'Continue'
+        Write-Host "[INFO] exiting!"
+        exit 0
     }
 }
+
+& gh.exe release download --repo rabbitmq/rabbitmq-server $latest_rabbitmq_tag --pattern '*.exe' --clobber
+
+New-Variable -Name rabbitmq_installer_exe -Option Constant `
+    -Value (Get-ChildItem -Filter 'rabbitmq-server-*.exe' | Sort-Object -Property Name -Descending | Select-Object -First 1)
+
+Write-Host "[INFO] RabbitMQ installer exe: $rabbitmq_installer_exe"
 
 New-Variable -Name rabbitmq_installer_exe_sha256 -Option Constant `
     -Value (Get-FileHash -LiteralPath $rabbitmq_installer_exe -Algorithm SHA256).Hash.ToLowerInvariant()

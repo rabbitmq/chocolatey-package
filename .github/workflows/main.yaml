@@ -1,5 +1,6 @@
 name: build-push-chocolatey
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -8,6 +9,8 @@ on:
 jobs:
   build-package:
     runs-on: windows-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - run: ${{ github.workspace }}\build-package.ps1 -Push -ApiKey ${{ secrets.CHOCOLATEY_API_KEY }}
