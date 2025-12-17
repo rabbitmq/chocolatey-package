@@ -16,7 +16,13 @@ if ($pp['RABBITMQBASE'])
 # https://github.com/rabbitmq/rabbitmq-server/releases/download/v4.x.y/rabbitmq-server-4.x.y.exe
 Install-ChocolateyPackage -PackageName 'rabbitmq' -FileType 'exe' -SilentArgs '/S' -Url 'https://github.com/rabbitmq/rabbitmq-server/releases/download/v@@RABBITMQ_VERSION@@/rabbitmq-server-@@RABBITMQ_VERSION@@.exe' -ChecksumType sha256 -Checksum @@RABBITMQ_EXE_SHA256@@ 
 $rabbitPath = Get-RabbitMQPath
-if (-not $pp.ContainsKey('NOMANAGEMENT'))
+if ($pp.ContainsKey('NOMANAGEMENT'))
 {
-    Start-Process -Verbose -FilePath "$rabbitPath\sbin\rabbitmq-plugins.bat" -ArgumentList 'enable','rabbitmq_management' -NoNewWindow -Wait
+    Write-Output '[INFO] RabbitMQ installation completed.'
+}
+else
+{
+    Write-Output '[INFO] RabbitMQ installation completed, enabling rabbitmq_management plugin...'
+    & "$rabbitPath\sbin\rabbitmq-plugins.bat" enable rabbitmq_management
+    Write-Output '[INFO] rabbitmq_management plugin is enabled.'
 }
