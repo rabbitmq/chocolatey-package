@@ -26,7 +26,9 @@ foreach ($file in $filesToCheck)
     if (Test-Path -LiteralPath $file)
     {
         Write-Information "Analyzing $file ..." -InformationAction Continue
-        $results = Invoke-ScriptAnalyzer -Path $file -Settings $settingsPath
+        $results = Invoke-ScriptAnalyzer -Path $file -Settings $settingsPath -ExcludeRule @(
+            'PSReviewUnusedParameter'  # False positive for parameters used in scriptblocks
+        )
         if ($results)
         {
             $allPassed = $false
