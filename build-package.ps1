@@ -13,17 +13,17 @@ Set-PSDebug -Off
 Set-StrictMode -Version 'Latest' -ErrorAction 'Stop' -Verbose
 
 New-Variable -Name curdir  -Option Constant -Value $PSScriptRoot
-Write-Host "[INFO] curdir: $curdir"
+Write-Information "[INFO] curdir: $curdir" -InformationAction Continue
 
 New-Variable -Name latest_rabbitmq_tag -Option Constant `
   -Value $(& gh.exe release view --json tagName --repo rabbitmq/rabbitmq-server --jq .tagName)
 
-Write-Host "[INFO] latest RabbitMQ tag:" $latest_rabbitmq_tag
+Write-Information "[INFO] latest RabbitMQ tag:" $latest_rabbitmq_tag -InformationAction Continue
 
 New-Variable -Name rabbitmq_version -Option Constant -Value ($latest_rabbitmq_tag -replace 'v','')
 New-Variable -Name rabbitmq_version_sortable -Option Constant -Value ($rabbitmq_version -replace '\.','')
 
-Write-Host "[INFO] RabbitMQ version: $rabbitmq_version ($rabbitmq_version_sortable)"
+Write-Information "[INFO] RabbitMQ version: $rabbitmq_version ($rabbitmq_version_sortable)" -InformationAction Continue
 
 # Get latest published RabbitMQ version
 New-Variable -Name rabbitmq_choco_info -Option Constant `
@@ -31,14 +31,14 @@ New-Variable -Name rabbitmq_choco_info -Option Constant `
 New-Variable -Name rabbitmq_choco_version -Option Constant -Value $rabbitmq_choco_info.Version
 New-Variable -Name rabbitmq_choco_version_sortable -Option Constant -Value ($rabbitmq_choco_version -replace '\.','')
 
-Write-Host "[INFO] chocolatey.org RabbitMQ version: $rabbitmq_choco_version ($rabbitmq_choco_version_sortable)"
+Write-Information "[INFO] chocolatey.org RabbitMQ version: $rabbitmq_choco_version ($rabbitmq_choco_version_sortable)" -InformationAction Continue
 
 if (-Not($rabbitmq_version_sortable -gt $rabbitmq_choco_version_sortable))
 {
-    Write-Host "[INFO] newest RabbitMQ version already available on chocolatey.org"
+    Write-Information "[INFO] newest RabbitMQ version already available on chocolatey.org" -InformationAction Continue
     if (-Not($Force))
     {
-        Write-Host "[INFO] exiting!"
+        Write-Information "[INFO] exiting!" -InformationAction Continue
         exit 0
     }
 }
@@ -48,12 +48,12 @@ if (-Not($rabbitmq_version_sortable -gt $rabbitmq_choco_version_sortable))
 New-Variable -Name rabbitmq_installer_exe -Option Constant `
     -Value (Get-ChildItem -Filter 'rabbitmq-server-*.exe' | Sort-Object -Property Name -Descending | Select-Object -First 1)
 
-Write-Host "[INFO] RabbitMQ installer exe: $rabbitmq_installer_exe"
+Write-Information "[INFO] RabbitMQ installer exe: $rabbitmq_installer_exe" -InformationAction Continue
 
 New-Variable -Name rabbitmq_installer_exe_sha256 -Option Constant `
     -Value (Get-FileHash -LiteralPath $rabbitmq_installer_exe -Algorithm SHA256).Hash.ToLowerInvariant()
 
-Write-Host "[INFO] RabbitMQ installer sha256: $rabbitmq_installer_exe_sha256"
+Write-Information "[INFO] RabbitMQ installer sha256: $rabbitmq_installer_exe_sha256" -InformationAction Continue
 
 (Get-Content -Raw -LiteralPath rabbitmq.nuspec.in).Replace('@@RABBITMQ_VERSION@@', $rabbitmq_version) | Set-Content -LiteralPath rabbitmq.nuspec
 
@@ -68,7 +68,7 @@ New-Variable -Name chocolateyInstallPs1 -Option Constant `
 & choco pack --limit-output
 if ($LASTEXITCODE -eq 0)
 {
-    Write-Host "[INFO] 'choco pack' succeeded."
+    Write-Information "[INFO] 'choco pack' succeeded." -InformationAction Continue
 }
 else
 {
@@ -80,7 +80,7 @@ if ($Push)
     & choco install rabbitmq -dv -source ".;https://chocolatey.org/api/v2/"
     if ($LASTEXITCODE -eq 0)
     {
-        Write-Host "[INFO] 'choco install rabbitmq' succeeded."
+        Write-Information "[INFO] 'choco install rabbitmq' succeeded." -InformationAction Continue
     }
     else
     {
@@ -90,7 +90,7 @@ if ($Push)
     & choco apikey --yes --key $ApiKey --source https://push.chocolatey.org/
     if ($LASTEXITCODE -eq 0)
     {
-        Write-Host "[INFO] 'choco apikey' succeeded."
+        Write-Information "[INFO] 'choco apikey' succeeded." -InformationAction Continue
     }
     else
     {
@@ -100,7 +100,7 @@ if ($Push)
     & choco push rabbitmq.$rabbitmq_version.nupkg --source https://push.chocolatey.org
     if ($LASTEXITCODE -eq 0)
     {
-        Write-Host "[INFO] 'choco push' succeeded."
+        Write-Information "[INFO] 'choco push' succeeded." -InformationAction Continue
     }
     else
     {

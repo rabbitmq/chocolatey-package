@@ -1,4 +1,3 @@
-if(!$PSScriptRoot){ $PSScriptRoot = Split-Path $MyInvocation.MyCommand.Path -Parent }
 . "$PSScriptRoot\ChocolateyHelpers.ps1"
 
 $rabbitPath = Get-RabbitMQPath
