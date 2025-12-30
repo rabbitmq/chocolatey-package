@@ -18,22 +18,21 @@ Write-Information "[INFO] curdir: $curdir" -InformationAction Continue
 New-Variable -Name latest_rabbitmq_tag -Option Constant `
     -Value $(& gh.exe release view --json tagName --repo rabbitmq/rabbitmq-server --jq .tagName)
 
-Write-Information "[INFO] latest RabbitMQ tag:" $latest_rabbitmq_tag -InformationAction Continue
+Write-Information "[INFO] latest RabbitMQ tag: $latest_rabbitmq_tag" -InformationAction Continue
 
-New-Variable -Name rabbitmq_version -Option Constant -Value ($latest_rabbitmq_tag -replace 'v', '')
-New-Variable -Name rabbitmq_version_sortable -Option Constant -Value ($rabbitmq_version -replace '\.', '')
+New-Variable -Name rabbitmq_version -Option Constant -Value ([version]($latest_rabbitmq_tag -replace 'v', ''))
 
-Write-Information "[INFO] RabbitMQ version: $rabbitmq_version ($rabbitmq_version_sortable)" -InformationAction Continue
+Write-Information "[INFO] RabbitMQ version: $rabbitmq_version" -InformationAction Continue
 
 # Get latest published RabbitMQ version
 New-Variable -Name rabbitmq_choco_info -Option Constant `
     -Value (& choco search rabbitmq --limit-output | ConvertFrom-Csv -Delimiter '|' -Header 'Name', 'Version' | Where-Object { $_.Name -eq 'rabbitmq' })
-New-Variable -Name rabbitmq_choco_version -Option Constant -Value $rabbitmq_choco_info.Version
-New-Variable -Name rabbitmq_choco_version_sortable -Option Constant -Value ($rabbitmq_choco_version -replace '\.', '')
 
-Write-Information "[INFO] chocolatey.org RabbitMQ version: $rabbitmq_choco_version ($rabbitmq_choco_version_sortable)" -InformationAction Continue
+New-Variable -Name rabbitmq_choco_version -Option Constant -Value ([version]$rabbitmq_choco_info.Version)
 
-if (-not($rabbitmq_version_sortable -gt $rabbitmq_choco_version_sortable))
+Write-Information "[INFO] chocolatey.org RabbitMQ version: $rabbitmq_choco_version" -InformationAction Continue
+
+if ($rabbitmq_version -le $rabbitmq_choco_version)
 {
     Write-Information "[INFO] newest RabbitMQ version already available on chocolatey.org" -InformationAction Continue
     if (-not($Force))
@@ -43,7 +42,7 @@ if (-not($rabbitmq_version_sortable -gt $rabbitmq_choco_version_sortable))
     }
 }
 
-& gh.exe release download --repo rabbitmq/rabbitmq-server $latest_rabbitmq_tag --pattern '*.exe' --clobber
+& gh.exe release download --repo 'rabbitmq/rabbitmq-server' $latest_rabbitmq_tag --pattern '*.exe' --clobber
 
 New-Variable -Name rabbitmq_installer_exe -Option Constant `
     -Value (Get-ChildItem -Filter 'rabbitmq-server-*.exe' | Sort-Object -Property Name -Descending | Select-Object -First 1)
