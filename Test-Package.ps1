@@ -11,6 +11,7 @@ best practices and don't have common issues.
 #>
 
 $packageRoot = Split-Path -Parent $PSCommandPath
+$settingsPath = Join-Path -Path $packageRoot -ChildPath 'PSScriptAnalyzerSettings.psd1'
 $filesToCheck = @(
     "$packageRoot\build-package.ps1"
     "$packageRoot\tools\chocolateyInstall.ps1.in"
@@ -25,7 +26,7 @@ foreach ($file in $filesToCheck)
     if (Test-Path -LiteralPath $file)
     {
         Write-Information "Analyzing $file ..." -InformationAction Continue
-        $results = Invoke-ScriptAnalyzer -Path $file -Severity Warning,Error
+        $results = Invoke-ScriptAnalyzer -Path $file -Settings $settingsPath
         if ($results)
         {
             $allPassed = $false

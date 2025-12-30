@@ -16,27 +16,27 @@ New-Variable -Name curdir  -Option Constant -Value $PSScriptRoot
 Write-Information "[INFO] curdir: $curdir" -InformationAction Continue
 
 New-Variable -Name latest_rabbitmq_tag -Option Constant `
-  -Value $(& gh.exe release view --json tagName --repo rabbitmq/rabbitmq-server --jq .tagName)
+    -Value $(& gh.exe release view --json tagName --repo rabbitmq/rabbitmq-server --jq .tagName)
 
 Write-Information "[INFO] latest RabbitMQ tag:" $latest_rabbitmq_tag -InformationAction Continue
 
-New-Variable -Name rabbitmq_version -Option Constant -Value ($latest_rabbitmq_tag -replace 'v','')
-New-Variable -Name rabbitmq_version_sortable -Option Constant -Value ($rabbitmq_version -replace '\.','')
+New-Variable -Name rabbitmq_version -Option Constant -Value ($latest_rabbitmq_tag -replace 'v', '')
+New-Variable -Name rabbitmq_version_sortable -Option Constant -Value ($rabbitmq_version -replace '\.', '')
 
 Write-Information "[INFO] RabbitMQ version: $rabbitmq_version ($rabbitmq_version_sortable)" -InformationAction Continue
 
 # Get latest published RabbitMQ version
 New-Variable -Name rabbitmq_choco_info -Option Constant `
-    -Value (& choco search rabbitmq --limit-output | ConvertFrom-CSV -Delimiter '|' -Header 'Name','Version' | Where-Object { $_.Name -eq 'rabbitmq' })
+    -Value (& choco search rabbitmq --limit-output | ConvertFrom-Csv -Delimiter '|' -Header 'Name', 'Version' | Where-Object { $_.Name -eq 'rabbitmq' })
 New-Variable -Name rabbitmq_choco_version -Option Constant -Value $rabbitmq_choco_info.Version
-New-Variable -Name rabbitmq_choco_version_sortable -Option Constant -Value ($rabbitmq_choco_version -replace '\.','')
+New-Variable -Name rabbitmq_choco_version_sortable -Option Constant -Value ($rabbitmq_choco_version -replace '\.', '')
 
 Write-Information "[INFO] chocolatey.org RabbitMQ version: $rabbitmq_choco_version ($rabbitmq_choco_version_sortable)" -InformationAction Continue
 
-if (-Not($rabbitmq_version_sortable -gt $rabbitmq_choco_version_sortable))
+if (-not($rabbitmq_version_sortable -gt $rabbitmq_choco_version_sortable))
 {
     Write-Information "[INFO] newest RabbitMQ version already available on chocolatey.org" -InformationAction Continue
-    if (-Not($Force))
+    if (-not($Force))
     {
         Write-Information "[INFO] exiting!" -InformationAction Continue
         exit 0
