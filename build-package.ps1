@@ -1,3 +1,5 @@
+#Requires -Version 7.0
+
 param(
     [switch]$Force = $false,
     [switch]$Push = $false,
