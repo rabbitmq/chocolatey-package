@@ -6,6 +6,8 @@ on:
       - main
   schedule:
     - cron: '30 5 * * *'
+permissions:
+  contents: read
 jobs:
   build-package:
     runs-on: windows-latest
