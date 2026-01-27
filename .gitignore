@@ -1,2 +1,7 @@
 *.nupkg
 *.exe
+
+update_vars.ps1
+Update-AUPackages.md
+Update-History.md
+update_info.xml
