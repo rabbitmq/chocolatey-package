@@ -17,4 +17,4 @@ jobs:
       - shell: pwsh
         run: Install-Module -Name PSScriptAnalyzer -Force -Scope CurrentUser
       - shell: pwsh
-        run: ${{ github.workspace }}\Test-Package.ps1
+        run: ${{ github.workspace }}\Invoke-Validation.ps1
