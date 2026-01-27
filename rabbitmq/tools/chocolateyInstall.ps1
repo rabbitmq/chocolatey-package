@@ -1,16 +1,20 @@
-
 . "$PSScriptRoot\ChocolateyHelpers.ps1"
+
+$version = '4.2.3'
+$checksum = '743d6bd70961f58ac53a539399702708e4193f15b47b96a2d8c051ce74d8dac8'
 
 $pp = Get-PackageParameters
 
 if ($pp['RABBITMQBASE'])
 {
-    [System.Environment]::SetEnvironmentVariable("RABBITMQ_BASE", $pp['RABBITMQBASE'], "Machine" )
+    [System.Environment]::SetEnvironmentVariable("RABBITMQ_BASE", $pp['RABBITMQBASE'], "Machine")
     ${Env:RABBITMQ_BASE} = $pp['RABBITMQBASE']
 }
 
-# https://github.com/rabbitmq/rabbitmq-server/releases/download/v4.x.y/rabbitmq-server-4.x.y.exe
-Install-ChocolateyPackage -PackageName 'rabbitmq' -FileType 'exe' -SilentArgs '/S' -Url 'https://github.com/rabbitmq/rabbitmq-server/releases/download/v@@RABBITMQ_VERSION@@/rabbitmq-server-@@RABBITMQ_VERSION@@.exe' -ChecksumType sha256 -Checksum @@RABBITMQ_EXE_SHA256@@ 
+$url = "https://github.com/rabbitmq/rabbitmq-server/releases/download/v$version/rabbitmq-server-$version.exe"
+
+Install-ChocolateyPackage -PackageName 'rabbitmq' -FileType 'exe' -SilentArgs '/S' -Url $url -ChecksumType 'sha256' -Checksum $checksum
+
 $rabbitPath = Get-RabbitMQPath
 if ($pp.ContainsKey('NOMANAGEMENT'))
 {

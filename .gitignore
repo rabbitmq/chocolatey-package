@@ -1,4 +1,2 @@
-tools/chocolateyInstall.ps1
-rabbitmq.nuspec
 *.nupkg
 *.exe
