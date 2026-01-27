@@ -10,13 +10,13 @@ $InformationPreference = 'Continue'
 if (Test-Path $PSScriptRoot/update_vars.ps1) { . $PSScriptRoot/update_vars.ps1 }
 
 $Options = [ordered]@{
-    WhatIf        = $au_WhatIf
-    Force         = $false
-    Timeout       = 100
+    WhatIf = $au_WhatIf
+    Force = $false
+    Timeout = 100
     UpdateTimeout = 1200
-    Threads       = 10
-    Push          = $Env:au_Push -eq 'true'
-    PushAll       = $true
+    Threads = 10
+    Push = $Env:au_Push -eq 'true'
+    PushAll = $true
 
     IgnoreOn = @(
         'Could not create SSL/TLS secure channel'
@@ -39,41 +39,41 @@ $Options = [ordered]@{
     )
 
     Report = @{
-        Type   = 'markdown'
-        Path   = "$PSScriptRoot\Update-AUPackages.md"
+        Type = 'markdown'
+        Path = "$PSScriptRoot\Update-AUPackages.md"
         Params = @{
             Github_UserRepo = $Env:github_user_repo
-            NoAppVeyor      = $true
-            NoIcons         = $false
-            IconSize        = 32
+            NoAppVeyor = $true
+            NoIcons = $false
+            IconSize = 32
         }
     }
 
     History = @{
-        Lines           = 120
+        Lines = 120
         Github_UserRepo = $Env:github_user_repo
-        Path            = "$PSScriptRoot\Update-History.md"
+        Path = "$PSScriptRoot\Update-History.md"
     }
 
     Gist = @{
-        Id     = $Env:gist_id
+        Id = $Env:gist_id
         ApiKey = $Env:github_api_key
-        Path   = "$PSScriptRoot\Update-AUPackages.md", "$PSScriptRoot\Update-History.md"
+        Path = "$PSScriptRoot\Update-AUPackages.md", "$PSScriptRoot\Update-History.md"
     }
 
     Git = @{
-        User     = ''
+        User = ''
         Password = $Env:github_api_key
-        Branch   = 'main'
+        Branch = 'main'
     }
 
     RunInfo = @{
         Exclude = 'password', 'apikey', 'apitoken'
-        Path    = "$PSScriptRoot\update_info.xml"
+        Path = "$PSScriptRoot\update_info.xml"
     }
 
     ForcedPackages = $ForcedPackages -split ' '
-    BeforeEach     = {
+    BeforeEach = {
         param($PackageName, $Options)
 
         $pattern = "^${PackageName}(?:\\(?<stream>[^:]+))?(?:\:(?<version>.+))?$"
