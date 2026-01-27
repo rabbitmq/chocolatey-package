@@ -1,0 +1,27 @@
+name: update-au-packages
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 5 * * *'
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: windows-latest
+    env:
+      au_Push: 'true'
+      GH_TOKEN: ${{ github.token }}
+      github_api_key: ${{ secrets.API_KEY }}
+      github_user_repo: rabbitmq/chocolatey-package
+      api_key: ${{ secrets.CHOCOLATEY_API_KEY }}
+    steps:
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          submodules: true
+      - shell: pwsh
+        run: |
+          git config --global user.email "info@rabbitmq.com"
+          git config --global user.name "RabbitMQ"
+      - name: Update-Packages.ps1
+        shell: pwsh
+        run: ${{ github.workspace }}\Update-Packages.ps1
