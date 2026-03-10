@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>rabbitmqadmin</id>
+    <title>rabbitmqadmin</title>
+    <version>2.27.0</version>
+    <authors>Team RabbitMQ</authors>
+    <owners>Team RabbitMQ</owners>
+    <summary>rabbitmqadmin v2 is a modern CLI tool for the RabbitMQ HTTP API</summary>
+    <description><![CDATA[rabbitmqadmin v2 is a major revision of rabbitmqadmin, one of the RabbitMQ CLI tools
+that targets the HTTP API. It is a standalone binary with no runtime dependencies.
+
+rabbitmqadmin v2 supports open source RabbitMQ 4.x and 3.13.x, as well as Tanzu RabbitMQ 4.x and 3.13.x.
+
+It is particularly useful for Blue-Green Deployment upgrades and migrations from RabbitMQ 3.13.x to 4.x.
+
+For usage documentation, see https://www.rabbitmq.com/docs/management-cli
+]]></description>
+    <projectUrl>https://www.rabbitmq.com/docs/management-cli</projectUrl>
+    <projectSourceUrl>https://github.com/rabbitmq/rabbitmqadmin-ng</projectSourceUrl>
+    <packageSourceUrl>https://github.com/rabbitmq/chocolatey-package</packageSourceUrl>
+    <releaseNotes>https://github.com/rabbitmq/rabbitmqadmin-ng/releases/tag/v2.27.0</releaseNotes>
+    <tags>rabbitmq rabbitmqadmin cli http-api management amqp messaging admin</tags>
+    <copyright>The rabbitmqadmin v2 Contributors</copyright>
+    <licenseUrl>https://github.com/rabbitmq/rabbitmqadmin-ng/blob/main/LICENSE-MIT</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <iconUrl>https://raw.githubusercontent.com/rabbitmq/chocolatey-package/refs/heads/main/rabbitmq/rabbitmq-logo.png</iconUrl>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
