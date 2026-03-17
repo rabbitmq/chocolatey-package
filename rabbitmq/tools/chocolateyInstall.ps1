@@ -1,7 +1,7 @@
 ﻿. "$PSScriptRoot\ChocolateyHelpers.ps1"
 
-$url = 'https://github.com/rabbitmq/rabbitmq-server/releases/download/v4.2.4/rabbitmq-server-4.2.4.exe'
-$checksum = '1106a0eead4d8518f9a283652b204392052bb3987cf97aece8ab3d2177e31b07'
+$url = 'https://github.com/rabbitmq/rabbitmq-server/releases/download/v4.2.5/rabbitmq-server-4.2.5.exe'
+$checksum = '7f36c7199d12eb76f1560a850b821c3d1508b4c58020c6646e3bd7384eca0dd2'
 
 $pp = Get-PackageParameters
 

@@ -3,7 +3,7 @@
   <metadata>
     <id>rabbitmqadmin</id>
     <title>rabbitmqadmin</title>
-    <version>2.27.0</version>
+    <version>2.28.0</version>
     <authors>Team RabbitMQ</authors>
     <owners>Team RabbitMQ</owners>
     <summary>rabbitmqadmin v2 is a modern CLI tool for the RabbitMQ HTTP API</summary>
@@ -19,7 +19,7 @@ For usage documentation, see https://www.rabbitmq.com/docs/management-cli
     <projectUrl>https://www.rabbitmq.com/docs/management-cli</projectUrl>
     <projectSourceUrl>https://github.com/rabbitmq/rabbitmqadmin-ng</projectSourceUrl>
     <packageSourceUrl>https://github.com/rabbitmq/chocolatey-package</packageSourceUrl>
-    <releaseNotes>https://github.com/rabbitmq/rabbitmqadmin-ng/releases/tag/v2.27.0</releaseNotes>
+    <releaseNotes>https://github.com/rabbitmq/rabbitmqadmin-ng/releases/tag/v2.28.0</releaseNotes>
     <tags>rabbitmq rabbitmqadmin cli http-api management amqp messaging admin</tags>
     <copyright>The rabbitmqadmin v2 Contributors</copyright>
     <licenseUrl>https://github.com/rabbitmq/rabbitmqadmin-ng/blob/main/LICENSE-MIT</licenseUrl>
