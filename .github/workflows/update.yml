@@ -13,6 +13,7 @@ jobs:
       GH_TOKEN: ${{ github.token }}
       github_api_key: ${{ secrets.API_KEY }}
       github_user_repo: rabbitmq/chocolatey-package
+      gist_id: ${{ secrets.GIST_ID }}
       api_key: ${{ secrets.CHOCOLATEY_API_KEY }}
     steps:
       - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
